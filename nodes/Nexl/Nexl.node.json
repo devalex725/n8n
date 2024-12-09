@@ -1,0 +1,20 @@
+{
+	"node": "n8n-nodes-base.nexl",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": [
+		"Miscellaneous"
+	],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://nexl-360-latest.nexl.cloud/api_docs/index"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://nexl-360-latest.nexl.cloud/api_docs/index"
+			}
+		]
+	}
+}
