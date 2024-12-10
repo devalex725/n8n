@@ -17,6 +17,7 @@ import * as updateContact from './updateContact';
 import * as updateContactCustomField from './updateContactCustomField';
 import * as updateContactTags from './updateContactTags';
 import * as getContactLists from './getContactLists';
+import * as removeMembersFromContactList from './removeMembersFromContactList';
 
 export {
 	getContactDetails,
@@ -36,6 +37,7 @@ export {
 	updateContactCustomField,
 	updateContactTags,
 	getContactLists,
+	removeMembersFromContactList
 };
 
 export const descriptions: INodeProperties[] = [
@@ -117,6 +119,12 @@ export const descriptions: INodeProperties[] = [
 				action: 'Get contact list members',
 			},
 			{
+				name: 'Remove Members From Contact List',
+				value: 'removeMembersFromContactList',
+				description: 'Remove multiple members from contact list',
+				action: 'Remove members from contact list',
+			},
+			{
 				name: 'Update Contact',
 				value: 'updateContact',
 				action: 'Update a contact',
@@ -162,4 +170,5 @@ export const descriptions: INodeProperties[] = [
 	...updateContactCustomField.description,
 	...updateContactTags.description,
 	...getContactLists.description,
+	...removeMembersFromContactList.description
 ];

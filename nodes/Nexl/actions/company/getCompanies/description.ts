@@ -168,7 +168,7 @@ export const getCompaniesDescription: CompanyProperties = [
             name: 'property',
             type: 'options',
             options: TimeFilterProperties,
-            default: 'CREATED_AT'
+            default: 'CREATED'
           },
           {
             displayName: 'Position',

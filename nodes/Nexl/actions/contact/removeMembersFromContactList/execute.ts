@@ -2,7 +2,7 @@ import type { IExecuteFunctions, IDataObject, INodeExecutionData } from 'n8n-wor
 
 import { apiRequest } from '../../../transport';
 
-export async function removeMemberFromContact(
+export async function removeMembersFromContactList(
 	this: IExecuteFunctions,
 	index: number,
 ): Promise<INodeExecutionData[]> {
@@ -27,17 +27,18 @@ export async function removeMemberFromContact(
 		}
 	`;
 
-	const contactUids = (this.getNodeParameter('contactUids', index) as IDataObject[]).map(
-		(contact) => contact.contactId,
-	);
-
-	const variables: IDataObject = {
-		uid: this.getNodeParameter('listUid', index) as string,
-		contactUids,
+	const variables = {
+		listMemberEmails: (this.getNodeParameter('listEmailTobeRemoved', index) as IDataObject[])
+			.filter((item) => item.email !== '')
+			.map((item) => (item.email as string).trim()),
+		listMemberUids: (this.getNodeParameter('listUIDTobeRemoved', index) as IDataObject[])
+			.filter((item) => item.uid !== '')
+			.map((item) => (item.uid as string).trim()),
+		uid: (this.getNodeParameter('listUid', index) as string).trim(),
 	};
 
 	body.variables = JSON.stringify(variables);
 
 	const responseData = await apiRequest.call(this, requestMethod, endpoint, body, qs);
-	return this.helpers.returnJsonArray(responseData.data.listMembers);
+	return this.helpers.returnJsonArray(responseData.data.removeMembersFromContactList);
 }

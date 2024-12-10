@@ -16,7 +16,9 @@ type NexlMap = {
 		| 'updateContactConsent'
 		| 'updateContactCustomField'
 		| 'updateContactTags'
-		| 'getContactLists';
+		| 'getContactLists'
+		| 'removeMembersFromContactList'
+		;
 	company:
 		| 'getCompanies'
 		| 'createCompany'
